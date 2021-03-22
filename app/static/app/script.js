@@ -100,7 +100,7 @@ $("#tdata").on("click", "#deleteitem", function(){
     let id = $(this).data("sid");
     // console.log(id);
     content = {id:id};
-    var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
+    var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');~
     // console.log(content);
     $.ajax({
         url:"http://127.0.0.1:8000/api/generic/services/"+id+"/",
