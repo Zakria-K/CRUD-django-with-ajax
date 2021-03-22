@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="{% static 'app/bootstrap.min.css'%}" rel="stylesheet">
+</head>
+<body>
+    <div class="h1 text-center p-2 bg-dark text-light">Ajax + Django Tutorial</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 bg-light">
+                <div class="card text-center">
+                    <div class="card-header pb-0 bg-warning text-white">
+                        <h5>Add New Item</h5>
+                    </div>
+                    <div class="card-body">
+                            <form action="" id="addItemForm" method="post" class=" text-start" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                
+                                 <input type="hidden" name="id" value="" class="form-control" id="itemid">
+                                <div class="my-2">
+                                    <label for="">Title</label>
+                                        <input type="text"  name="title" value="" id="title" class="form-control">
+                                </div>
+                                <div class="my-2">
+                                    <label for="">Descriptiom</label>
+                                        <textarea value=""  name="description" id="desc" cols="30" rows="4" class="form-control"></textarea>
+                                </div>
+                                <div class="my-2">
+                                    <label for="image" class="form-label">File</label>
+                                    <input name="image" class="form-control form-control-sm" id="image" type="file">
+                                  </div>
+                                <input type="hidden" value="" id="user" class="form-control">
+                                <button type="submit" class="btn btn-warning" id="saveService">Save</button>
+                                <div class="my-3" id="msg"></div>
+                            </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 card bg-light">
+                        <h5 class="p-2 bg-success text-white text-center">All Items</h5>
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td>#</td>
+                                    <td>title</td>
+                                    <td>descriptiom</td>
+                                    <td>image</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </thead>
+                            <tbody id="tdata"></tbody>
+                        </table>
+                        <div id="pagination" class="text-center"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{%static 'app/bootstrap.min.js'%}"></script>
+    <script src="{%static 'app/jquery.js'%}"></script>
+    <script src="{% static 'app/script.js'%}"></script>    
+</body>
+</html>
